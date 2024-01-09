@@ -11,7 +11,7 @@ function Register(props) {
         password: ''
     });
     const [error, setError] = useState({})
-    console.log(1, formData);
+    // console.log(1, formData);
 
     const handleChange = (e, key) => {
         setFormData({
@@ -24,7 +24,7 @@ function Register(props) {
         e.preventDefault();
         const {data} = await axios.post(`https://cors-anywhere.herokuapp.com/http://restapi.adequateshop.com/api/authaccount/registration/`, formData).catch(e => e.response);
         setFormData(data);
-        console.log(data)
+        // console.log(data)
         if (data.message !== 'success') {
             setError({
                 name: data.ModelState && data.ModelState['User.name'] ? data.ModelState['User.name'][0] : null,
